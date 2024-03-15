@@ -1,0 +1,186 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "DM Sans", sans-serif;
+}
+body {
+  color: lightgrey;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+section {
+  height: 100vh;
+  scroll-snap-align: center;
+}
+
+.astronaut {
+  object-fit: contain;
+  /* position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0; */
+  margin: auto;
+  animation: animate 3s infinite linear;
+}
+@keyframes animate {
+  0% {
+    transform: translateY(-20px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  100% {
+    transform: translateY(-20px);
+  }
+}
+
+.menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  padding: 0 16px;
+  z-index: 1000;
+  height: 100vh;
+}
+
+.starfall {
+  background-image: url("../app/src/banner-bg.png");
+  background-size: cover;
+  background-position: center;
+}
+
+.timeline-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: -50vh;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: calc(100vh + 50vh);
+  background-color: #963489;
+  z-index: -1;
+}
+
+.timeline-icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  background-color: black;
+  padding: 0.5rem;
+  border-radius: 50%;
+  border: 2px solid #963489;
+  color: #5fabfd;
+  font-size: 1.5rem;
+}
+
+.timeline-icon:hover {
+  transform: scale();
+  transition: transform 0.5s ease-in-out;
+}
+
+.timeline-text {
+  display: none;
+  position: absolute;
+  top: 50%;
+  /* right: calc(100% + 0.5rem); */
+  right: 1rem;
+  transform: translateY(-50%);
+  border-radius: 10px 0 10px 0px;
+  transition: 0.6s ease;
+}
+
+.timeline-icon:hover + .timeline-text {
+  display: block;
+}
+
+.parallax {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.parallax h1 {
+  font-size: 100px;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax h1 {
+    font-size: 72px;
+    text-align: center;
+  }
+}
+
+.parallax .mountains {
+  background-image: url("../app/src/mountains.png");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 3;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax .mountains {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.parallax .planets {
+  /* background-image: url("../app/src/planets.png"); */
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+  .parallax .planets {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.parallax .stars {
+  background-image: url("../app/src/stars.png");
+  background-size: cover;
+  background-position: bottom;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: 1;
+}
