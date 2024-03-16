@@ -159,7 +159,6 @@ section {
 }
 
 .parallax .planets {
-  /* background-image: url("../app/src/planets.png"); */
   background-size: cover;
   background-position: bottom;
   width: 100%;
@@ -183,4 +182,11 @@ section {
   height: 100%;
   position: absolute;
   z-index: 1;
+}
+
+.lang {
+  background-image: url("../app/src/bg1.jpg");
+  background-position: center center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
