@@ -1,6 +1,7 @@
 import Hero from "@/components/Hero";
 import Languages from "@/components/Languages";
 import MainLanguages from "@/components/MainLanguages";
+import Projects from "@/components/Projects";
 import Link from "next/link";
 
 export default function Home() {
@@ -15,10 +16,12 @@ export default function Home() {
       <section className='lang'>
         <MainLanguages />
       </section>
-      <section id='languages'>
+      <section>
         <Languages type='sun' />
       </section>
-      <section id='projects'>Projects</section>
+      <section id='projects'>
+        <Projects />
+      </section>
       <section id='experience'>Experience</section>
       <section id='education'>Education</section>
       <section id='contact'>Contact</section>

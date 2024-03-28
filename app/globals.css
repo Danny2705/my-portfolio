@@ -27,6 +27,10 @@ section {
   height: 100vh;
   scroll-snap-align: center;
 }
+section #projects {
+  height: 150vh;
+  scroll-snap-align: center;
+}
 
 .astronaut {
   object-fit: contain;
@@ -184,9 +188,34 @@ section {
   z-index: 1;
 }
 
-.lang {
+/* .lang {
   background-image: url("../app/src/bg1.jpg");
   background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
+} */
+
+.box {
+  /* background-image: url("../public/space.jpg");
+  background-size: cover; */
+  background-color: #37296d;
+  border-radius: 100px;
+  -webkit-filter: blur(100px);
+  filter: blur(100px);
+  height: 20rem;
+  position: absolute;
+  width: 20rem;
 }
+
+/* .box-2 {
+  background-color: white;
+  border-radius: 10px;
+  height: 15rem;
+  width: 35rem;
+  position: absolute;
+  top: 20rem;
+  left: 7rem;
+  z-index: -99;
+  clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
+  filter: blur(10px);
+} */

@@ -25,7 +25,7 @@ const Languages = ({ type }) => {
       }}
     >
       <motion.h1 style={{ y: yText }}>
-        {type === "moon" ? "What I Learn?" : "What I Had?"}
+        {type === "moon" ? "What I Learnt?" : "What I Had?"}
       </motion.h1>
       <motion.div className='mountains'></motion.div>
       <motion.div
