@@ -2,7 +2,6 @@ import Hero from "@/components/Hero";
 import Languages from "@/components/Languages";
 import MainLanguages from "@/components/MainLanguages";
 import Projects from "@/components/Projects";
-import Link from "next/link";
 
 export default function Home() {
   return (
@@ -19,7 +18,7 @@ export default function Home() {
       <section>
         <Languages type='sun' />
       </section>
-      <section id='projects'>
+      <section id='projects' className='relative'>
         <Projects />
       </section>
       <section id='experience'>Experience</section>

@@ -27,8 +27,9 @@ section {
   height: 100vh;
   scroll-snap-align: center;
 }
-section #projects {
-  height: 150vh;
+
+#experience {
+  height: 200vh;
   scroll-snap-align: center;
 }
 
@@ -105,7 +106,6 @@ section #projects {
 }
 
 .timeline-icon:hover {
-  transform: scale();
   transition: transform 0.5s ease-in-out;
 }
 
@@ -198,7 +198,7 @@ section #projects {
 .box {
   /* background-image: url("../public/space.jpg");
   background-size: cover; */
-  background-color: #37296d;
+  background-color: #3f2645;
   border-radius: 100px;
   -webkit-filter: blur(100px);
   filter: blur(100px);
@@ -219,3 +219,15 @@ section #projects {
   clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
   filter: blur(10px);
 } */
+
+.box-link {
+  background: linear-gradient(to right, #434343, #000000);
+}
+
+.project-container {
+  background-color: rgb(21 16 48);
+  padding: 20px;
+  will-change: transform;
+  transition: all 400ms cubic-bezier(0.03, 0.98, 0.52, 0.99) 0s;
+  transform: perspective(1000px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1);
+}

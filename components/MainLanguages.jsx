@@ -89,7 +89,7 @@ export default function MainLanguages() {
     //   </div>
     // </div>
     <div className='w-full max-w-[1200px] mx-auto flex flex-col justify-center gap-10 h-full'>
-      <h1 className='text-4xl font-bold mb-6 text-[#fff] text-center'>
+      <h1 className='text-7xl font-bold mb-6 text-[#fff] text-center'>
         Skills <span className='text-[#963489]'>&</span> Technologies
       </h1>
 

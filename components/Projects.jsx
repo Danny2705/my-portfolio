@@ -1,108 +1,99 @@
 "use client";
 import React, { useState } from "react";
 import projectList from "../app/projectList.js";
+import { FcPrevious, FcNext } from "react-icons/fc";
+import { FaLink } from "react-icons/fa6";
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
-  const [touchStartX, setTouchStartX] = useState(0);
-  const [show, setShow] = useState(false);
+  const [hoveredIndex, setHoveredIndex] = useState(null);
 
-  const handleSwipeLeft = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projectList.length - 1 : prevIndex - 1
-    );
-  };
-
-  const handleSwipeRight = () => {
+  const handleNext = () => {
     setActiveIndex((prevIndex) =>
       prevIndex === projectList.length - 1 ? 0 : prevIndex + 1
     );
   };
 
-  const handleTouchStart = (event) => {
-    setTouchStartX(event.touches[0].clientX);
+  const handlePrevious = () => {
+    setActiveIndex((prevIndex) =>
+      prevIndex === 0 ? projectList.length - 1 : prevIndex - 1
+    );
   };
 
-  const handleTouchEnd = (event) => {
-    const touchEndX = event.changedTouches[0].clientX;
-    const deltaX = touchEndX - touchStartX;
-
-    if (deltaX > 50) {
-      // Swipe right
-      handleSwipeRight();
-    } else if (deltaX < -50) {
-      // Swipe left
-      handleSwipeLeft();
+  function getColorClass(lang) {
+    switch (lang) {
+      case "react":
+      case "javascript":
+        return "text-[#3D90CC]";
+      case "mongodb":
+      case "postman":
+        return "text-[#218e68]";
+      default:
+        return "text-[#b22e61]";
     }
-  };
+  }
 
-  const handleShow = () => {
-    setShow(!show);
-  };
+  const startIndex = activeIndex % projectList.length;
+  const endIndex = Math.min(startIndex + 2, projectList.length - 1);
 
   return (
-    <div
-      className='px-5 flex justify-center flex-col relative h-full'
-      onTouchStart={handleTouchStart}
-      onTouchEnd={handleTouchEnd}
-    >
-      <div className='flex max-w-[1200px] mx-auto max-h-[800px]'>
-        {projectList.map((project, index) => (
-          <div
-            key={project.id}
-            className={`flex justify-center items-center mx-auto h-full ${
-              index === activeIndex ? "" : "hidden"
-            }`}
-          >
-            {show && (
-              <div className='flex-1 border'>
-                <p>{project.description}</p>
-              </div>
-            )}
-            <div className='flex-1 relative h-full'>
-              {/* <div className='box-2 shadow-xl shadow-white'></div> */}
-              {project.image && (
-                <div
-                  className='max-w-[1000px] h-full cursor-pointer'
-                  onClick={handleShow}
-                >
-                  <div className='flex items-center gap-4'>
-                    <p>{project.id}</p>
-                    <h1>{project.title}</h1>
-                  </div>
+    <div className='px-5 py-10 flex flex-col justify-start max-w-[1200px] h-full gap-7 mx-auto items-start'>
+      <h1 className='max-w-[1200px] text-7xl'>Projects.</h1>
+      <div className='flex justify-center items-center w-full mx-auto'>
+        <div className='cursor-pointer'>
+          <FcPrevious size={25} onClick={handlePrevious} />
+        </div>
+        <div className='flex justify-center items-center flex-wrap w-full gap-3 mx-auto h-full'>
+          {projectList.map((proj, i) => (
+            <div
+              className={`project-container sm:w-[360px] h-[500px] flex flex-wrap duration-200 border border-[#5fabfd] ${
+                hoveredIndex === i
+                  ? "z-[999] hover:scale-110"
+                  : "z-[1] hover:z-[2]"
+              } ${i >= startIndex && i <= endIndex ? "" : "hidden"}`}
+              key={i}
+              onMouseEnter={() => setHoveredIndex(i)}
+              onMouseLeave={() => setHoveredIndex(null)}
+            >
+              <div className='flex flex-col w-full items-center'>
+                <div className='h-[200px] w-[320px] relative'>
                   <img
-                    src={project.image}
+                    src={proj.image}
                     alt='project image'
-                    className='rounded-xl border shadow-xl shadow-white object-cover object-center'
-                    style={{
-                      width: "100%",
-                      height: "100%",
-                      objectFit: "cover",
-                      objectPosition: "center",
-                    }}
+                    className='w-full h-full'
                   />
+                  <div className='absolute top-3 right-2 rounded-full border p-1 box-link'>
+                    <a href={proj.link} target='_blank'>
+                      <FaLink size={22} color='white' />
+                    </a>
+                  </div>
                 </div>
-              )}
+                <div className='flex justify-between items-center mt-4 my-2 w-full text-[#963489]'>
+                  <span className='rounded-full border border-[#963489] text-white px-2'>
+                    {proj.id}
+                  </span>
+                  <h1 className=' font-bold tracking-wider'>{proj.title}</h1>
+                </div>
+                <p className='text-[#7c7795]'>{proj.description}</p>
+                <div className='text-[#7c7795] flex w-full flex-wrap items-center gap-2 mt-2'>
+                  {proj.language.map((lang, i) => (
+                    <div key={i} className={`${getColorClass(lang)}`}>
+                      #{lang}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
+        <div className='cursor-pointer'>
+          <FcNext size={25} onClick={handleNext} />
+        </div>
       </div>
+
+      {/* box */}
       <div className='box absolute w-full right-0 top-0 -z-10'></div>
       <div className='box absolute w-full left-0 bottom-0 -z-10'></div>
-      <div className='flex justify-center absolute bottom-5 w-full'>
-        <button
-          className='mx-2 bg-black border-[#963489] border px-2 items-center text-xl rounded-md text-[#5fabfd]'
-          onClick={handleSwipeLeft}
-        >
-          &lt;
-        </button>
-        <button
-          className='mx-2 bg-black border-[#963489] border px-2 items-center text-xl rounded-md text-[#5fabfd]'
-          onClick={handleSwipeRight}
-        >
-          &gt;
-        </button>
-      </div>
     </div>
   );
 }
