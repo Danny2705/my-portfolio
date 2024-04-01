@@ -1,6 +1,5 @@
 "use client";
 import React from "react";
-import { motion } from "framer-motion";
 import { useTypewriter } from "react-simple-typewriter";
 import { FaProjectDiagram, FaGithub, FaLinkedin } from "react-icons/fa";
 import { CiHome } from "react-icons/ci";
@@ -11,10 +10,6 @@ import { BiSolidContact } from "react-icons/bi";
 import SubHero from "./SubHero";
 import Scroll from "../app/src/scroll.png";
 import Image from "next/image";
-// import {
-//   VerticalTimeline,
-//   VerticalTimelineElement,
-// } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Link from "next/link";
 
@@ -25,21 +20,11 @@ function Hero() {
     typeSpeed: 100,
     deleteSpeed: 80,
   });
-
-  // const textStyle = {
-  //   color: "rgba(255, 255, 255, 0.5)",
-  // };
   return (
     <div className='px-4 h-full'>
       <div className='flex justify-between'>
-        <div className='text-xl'>
-          <motion.h1
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.5 }}
-          >
-            Danny
-          </motion.h1>
+        <div className='poppins text-3xl p-4 cursor-pointer'>
+          <h1>Danny</h1>
         </div>
 
         <div className='menu flex justify-center flex-col'>
@@ -111,22 +96,30 @@ function Hero() {
                 Contact
               </span>
             </Link>
-            <li className='flex items-center gap-2 p-2 rounded-lg cursor-pointer timeline-item'>
+            <a
+              href='https://github.com/Danny2705?tab=repositories'
+              target='_blank'
+              className='flex items-center gap-2 p-2 rounded-lg cursor-pointer timeline-item'
+            >
               <span className='timeline-icon'>
                 <FaGithub />
               </span>
               <span className='timeline-text bg-black text-[#5fabfd] p-2 pr-6'>
                 GitHub
               </span>
-            </li>
-            <li className='flex items-center gap-2 p-2 rounded-lg cursor-pointer timeline-item'>
+            </a>
+            <a
+              href='https://www.linkedin.com/in/dat-nguyen-8ba665263/'
+              target='_blank'
+              className='flex items-center gap-2 p-2 rounded-lg cursor-pointer timeline-item'
+            >
               <span className='timeline-icon'>
                 <FaLinkedin />
               </span>
               <span className='timeline-text bg-black text-[#5fabfd] p-2 pr-6'>
                 LinkedIn
               </span>
-            </li>
+            </a>
           </ul>
         </div>
       </div>

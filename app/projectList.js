@@ -21,7 +21,7 @@ const projectList = [
     id: 2,
     title: "Food Restaurant Admin",
     description:
-      "Besides the client-side, the website also features an admin dashboard for managing orders, menu items, and events. The dashboard provides real-time updates on orders and revenue, enabling restaurant owners to make data-driven decisions.",
+      "Besides the client-side, the website also features an admin dashboard for managing orders, menu items, and events. The dashboard provides real-time updates on orders and revenue",
     image: "/food-admin.png",
     link: "https://hughie-admin.vercel.app/",
     language: [

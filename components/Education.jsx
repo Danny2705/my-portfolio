@@ -5,30 +5,32 @@ import {
 } from "react-vertical-timeline-component";
 import { motion } from "framer-motion";
 import "react-vertical-timeline-component/style.min.css";
-import experiences from "../app/experiences.js";
+import education from "../app/education.js";
 import { textVariant } from "../utils/motion.js";
 
-const Experience = () => {
+const Education = () => {
   return (
     <div className='p-5 max-w-[1200px] flex flex-col items-center justify-center mx-auto'>
       <div className='w-full'>
-        <motion.div variants={textVariant()} initial='hidden' animate='show'>
-          <h2 className='text-7xl'>Work Experience 👨🏻‍💻.</h2>
+        <motion.div variants={textVariant()}>
+          <h2 className='text-7xl'>Education 📚.</h2>
         </motion.div>
-        <div className='mt-[3.5rem] flex flex-col'>
+        <div className='mt-[2rem] flex flex-col'>
           <VerticalTimeline lineColor=''>
-            {experiences.map((experience, index) => (
+            {education.map((edu, index) => (
               <VerticalTimelineElement
                 key={`experience-${index}`}
                 className='vertical-timeline-element--education'
                 contentStyle={{
                   background: "#1d1836",
                   color: "#fff",
+                  margin: 0,
                   borderWidth: 1,
                   borderColor: "#5fabfd",
                   boxShadow: "0 0 10px 0 #5fabfd",
                 }}
                 contentArrowStyle={{ borderRight: "7px solid #5fabfd" }}
+                iconStyle={{ background: "#383E56" }}
                 date={
                   <span
                     style={{
@@ -37,44 +39,34 @@ const Experience = () => {
                       fontWeight: 500,
                     }}
                   >
-                    {experience.date}
+                    {edu.date}
                   </span>
                 }
-                iconStyle={{ background: experience.iconBg }}
+                // iconStyle={{ background: edu.iconBg }}
                 visible={true}
                 icon={
                   <div className='mr-6 mt-4'>
-                    {experience.icon && (
-                      <experience.icon
-                        style={{ width: "50px", height: "50px" }}
-                      />
+                    {edu.icon && (
+                      <edu.icon style={{ width: "50px", height: "50px" }} />
                     )}
                   </div>
                 }
               >
-                <div>
-                  <h3 className='text-[#963489] text-[24px] font-bold'>
-                    {experience.title}
+                <div className='my-2'>
+                  <h3 className='text-[#963489] text-[1.5rem] font-bold'>
+                    {edu.title}
                   </h3>
                   <p
                     className='text-secondary text-[1rem] font-semibold italic text-[#b22e61]'
                     style={{ margin: 0 }}
                   >
-                    {experience.company_name}
+                    {edu.location}
+                  </p>
+                  <p className='text-[#7c7795]' style={{ margin: 0 }}>
+                    {edu.course}
                   </p>
                 </div>
-
-                <ul className='my-2 list-disc ml-5 space-y-2'>
-                  {experience.description.map((desc, index) => (
-                    <li
-                      key={`experience-point-${index}`}
-                      className='text-[#7c7795] text-[14px] pl-1 tracking-wider'
-                    >
-                      {desc}
-                    </li>
-                  ))}
-                </ul>
-                <span className='text-[#aead06]'>{experience.date}</span>
+                <span className='text-[#aead06]'>{edu.date}</span>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>
@@ -84,4 +76,4 @@ const Experience = () => {
   );
 };
 
-export default Experience;
+export default Education;

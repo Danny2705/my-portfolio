@@ -3,28 +3,63 @@ import Image from "next/image";
 import Astronaut from "../app/src/header-img.svg";
 import { Cursor } from "react-simple-typewriter";
 import { MdOutlineSend } from "react-icons/md";
+import { motion } from "framer-motion";
 
 export default function SubHero({ text }) {
   return (
     <div className='flex justify-center p-5 gap-8 w-[1200px] mx-auto mt-10'>
-      <div className='flex flex-col flex-1 gap-8'>
-        <span className='text-xl tracking-wider uppercase font-semibold'>
+      <div className='flex flex-col flex-1 gap-8 w-[528px]'>
+        <motion.span
+          initial={{ y: "2rem", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            duration: 2,
+            type: "spring",
+          }}
+          className='dmsans text-xl tracking-wider uppercase font-semibold'
+        >
           Danny Nguyen
-        </span>
-        <div className='flex flex-col font-bold font-serif text-8xl'>
-          <span>I am a</span>
-          <span className='text-[#963489]'>
+        </motion.span>
+        <motion.div
+          initial={{ y: "2rem", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: 0.5,
+            duration: 2,
+            type: "spring",
+          }}
+          className='flex flex-col font-bold font-serif text-8xl'
+        >
+          <span className='dmsans'>I am a</span>
+          <span className='dmsans text-[#963489]'>
             {text}
             <Cursor />
           </span>
-        </div>
-        <button className='flex items-center bg-[#5fabfd] text-[#963489] p-4 rounded-2xl w-44 gap-2 justify-center'>
+        </motion.div>
+        <motion.button
+          initial={{ y: "2rem", opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{
+            delay: 1.5,
+            duration: 3,
+            type: "spring",
+          }}
+          className='flex items-center bg-[#5fabfd] text-[#963489] p-4 rounded-2xl w-44 gap-2 justify-center'
+        >
           <MdOutlineSend size={20} />
           <span className='text-lg font-bold'>My Resume</span>
-        </button>
+        </motion.button>
       </div>
 
-      <div className='flex-1'>
+      <motion.div
+        initial={{ x: "7rem", opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 2,
+          type: "spring",
+        }}
+        className='flex-1'
+      >
         <Image
           src={Astronaut}
           alt='astronaut'
@@ -32,7 +67,7 @@ export default function SubHero({ text }) {
           height={450}
           className='astronaut'
         />
-      </div>
+      </motion.div>
     </div>
   );
 }

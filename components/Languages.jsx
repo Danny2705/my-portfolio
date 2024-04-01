@@ -24,7 +24,7 @@ const Languages = ({ type }) => {
             : "linear-gradient(180deg, #111132, #505064)",
       }}
     >
-      <motion.h1 style={{ y: yText }}>
+      <motion.h1 style={{ y: yText }} className='poppins'>
         {type === "moon" ? "What I Learnt?" : "What I Had?"}
       </motion.h1>
       <motion.div className='mountains'></motion.div>

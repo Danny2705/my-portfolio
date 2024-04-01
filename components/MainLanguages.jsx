@@ -1,5 +1,7 @@
 "use client";
+import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import HTM from "../app/src/html.png";
 import CSS from "../app/src/css.png";
 import JS from "../app/src/javascript.png";
@@ -40,54 +42,6 @@ export default function MainLanguages() {
   ];
 
   return (
-    // <div className='p-5 lg:w-[1200px] md:w-[900px] sm:w-[500px] mx-auto h-[600px] flex flex-col justify-center relative'>
-    //   <div className='text-center'>
-    //     <h1 className='text-4xl font-bold mb-6 bg-black text-[#5fabfd]'>
-    //       Skills <span className='text-[#963489]'>&</span> Technologies
-    //     </h1>
-    //     <p className='text-lg text-gray-400 mb-10'>Check out my skills below</p>
-    //   </div>
-    //   <div className='flex items-center justify-center flex-wrap'>
-    //     <Swiper
-    //       slidesPerView={8}
-    //       loop={true}
-    //       autoplay={{
-    //         delay: 0,
-    //         disableOnInteraction: false,
-    //       }}
-    //       speed={5000}
-    //       className='max-w-[90%] mb-6'
-    //     >
-    //       {items.map((item, index) => (
-    //         <SwiperSlide key={index}>
-    //           <div className='m-2 bg-[#000] items-center px-3 border border-[#5fabfd] py-3 rounded-full hover:bg-[#fff] duration-500 ease-in-out shadow-xl shadow-[#5fabfd]'>
-    //             <Image src={item} alt={`Language ${index}`} />
-    //           </div>
-    //         </SwiperSlide>
-    //       ))}
-    //     </Swiper>
-    //     <Swiper
-    //       slidesPerView={8}
-    //       loop={true}
-    //       autoplay={{
-    //         delay: 0,
-    //         disableOnInteraction: false,
-    //         reverseDirection: true,
-    //       }}
-    //       speed={5000}
-    //       modules={[Autoplay]}
-    //       className='max-w-[90%]'
-    //     >
-    //       {items.map((item, index) => (
-    //         <SwiperSlide key={index}>
-    //           <div className='m-2 bg-[#000] px-3 border border-[#5fabfd] py-3 rounded-full items-center hover:bg-[#fff] duration-500 ease-in-out shadow-xl shadow-[#5fabfd]'>
-    //             <Image src={item} alt={`Language ${index}`} />
-    //           </div>
-    //         </SwiperSlide>
-    //       ))}
-    //     </Swiper>
-    //   </div>
-    // </div>
     <div className='w-full max-w-[1200px] mx-auto flex flex-col justify-center gap-10 h-full'>
       <h1 className='text-7xl font-bold mb-6 text-[#fff] text-center'>
         Skills <span className='text-[#963489]'>&</span> Technologies
@@ -95,12 +49,15 @@ export default function MainLanguages() {
 
       <div className='flex flex-wrap justify-center'>
         {items.map((item, index) => (
-          <div
+          <motion.div
             key={index}
+            initial={{ x: "100%", opacity: 0 }}
+            animate={{ x: 0, opacity: 1 }}
+            transition={{ duration: 0.5, delay: index * 0.1 }}
             className='m-2 bg-[#000] px-3 border border-[#5fabfd] py-3 items-center hover:bg-[#f1f0f0] duration-500 ease-in-out shadow-lg shadow-[#5fabfd] flex'
           >
             <Image src={item} alt={`Language ${index}`} width='80' />
-          </div>
+          </motion.div>
         ))}
       </div>
     </div>

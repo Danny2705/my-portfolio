@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import projectList from "../app/projectList.js";
 import { FcPrevious, FcNext } from "react-icons/fc";
 import { FaLink } from "react-icons/fa6";
+import { motion } from "framer-motion";
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -38,7 +39,17 @@ export default function Projects() {
 
   return (
     <div className='px-5 py-10 flex flex-col justify-start max-w-[1200px] h-full gap-7 mx-auto items-start'>
-      <h1 className='max-w-[1200px] text-7xl'>Projects.</h1>
+      <motion.h1
+        initial={{ y: "-2rem", opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{
+          duration: 1,
+          type: "spring",
+        }}
+        className='max-w-[1200px] text-7xl'
+      >
+        Projects.
+      </motion.h1>
       <div className='flex justify-center items-center w-full mx-auto'>
         <div className='cursor-pointer'>
           <FcPrevious size={25} onClick={handlePrevious} />
@@ -72,12 +83,12 @@ export default function Projects() {
                   <span className='rounded-full border border-[#963489] text-white px-2'>
                     {proj.id}
                   </span>
-                  <h1 className=' font-bold tracking-wider'>{proj.title}</h1>
+                  <h1 className='font-bold tracking-wider'>{proj.title}</h1>
                 </div>
-                <p className='text-[#7c7795]'>{proj.description}</p>
+                <p className='poppins text-[#7c7795]'>{proj.description}</p>
                 <div className='text-[#7c7795] flex w-full flex-wrap items-center gap-2 mt-2'>
                   {proj.language.map((lang, i) => (
-                    <div key={i} className={`${getColorClass(lang)}`}>
+                    <div key={i} className={`dmsans ${getColorClass(lang)}`}>
                       #{lang}
                     </div>
                   ))}
