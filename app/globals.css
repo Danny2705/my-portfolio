@@ -218,19 +218,6 @@ section {
   width: 20rem;
 }
 
-/* .box-2 {
-  background-color: white;
-  border-radius: 10px;
-  height: 15rem;
-  width: 35rem;
-  position: absolute;
-  top: 20rem;
-  left: 7rem;
-  z-index: -99;
-  clip-path: polygon(25% 0, 100% 0, 75% 100%, 0 100%);
-  filter: blur(10px);
-} */
-
 .box-link {
   background: linear-gradient(to right, #434343, #000000);
 }
@@ -272,6 +259,10 @@ section {
   }
 }
 
+.burger-menu {
+  display: none;
+}
+
 @media screen and (max-width: 640px) {
   .logo {
     font-size: 1.5rem;
@@ -290,6 +281,7 @@ section {
     width: 100%;
     gap: 1rem;
     justify-content: center;
+    padding: 0 2rem;
   }
   .name {
     font-size: 1.2rem;
@@ -310,19 +302,17 @@ section {
     height: 310px;
   }
   .burger-menu {
+    display: block;
     font-size: 1.25rem;
     line-height: 2rem;
+    padding: 0;
     /* padding: 0 1rem; */
   }
+  .navbar {
+    padding: 1rem 0;
+  }
   .menu {
-    /* display: none; */
-    position: fixed;
-    top: 0;
-    /* right: 0; */
-    padding: 0 16px;
-    z-index: 1000;
-    height: 100%;
-    /* width: 100%; */
+    display: none;
   }
   .lg-text {
     font-size: 1.5rem;

@@ -57,7 +57,7 @@ export default function Projects() {
         <div className='flex justify-center items-center flex-wrap w-full gap-3 mx-auto h-full'>
           {projectList.map((proj, i) => (
             <div
-              className={`project-container sm:w-[360px] h-[500px] flex flex-wrap duration-200 border border-[#5fabfd] ${
+              className={`project-container sm:max-w-[360px] h-[500px] flex flex-wrap duration-200 border border-[#5fabfd] ${
                 hoveredIndex === i
                   ? "z-[999] hover:scale-110"
                   : "z-[1] hover:z-[2]"

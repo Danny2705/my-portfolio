@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 export default function SubHero({ text }) {
   return (
-    <div className='subhero flex justify-center p-5 gap-8 w-[1200px] mx-auto mt-10'>
-      <div className='hero-left flex flex-col flex-1 gap-8 w-[528px]'>
+    <div className='subhero flex justify-center px-5 gap-8 w-[1200px] mx-auto mt-10'>
+      <div className='hero-left flex flex-col flex-1 gap-8 max-w-[528px]'>
         <motion.span
           initial={{ y: "2rem", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -16,7 +16,7 @@ export default function SubHero({ text }) {
             duration: 2,
             type: "spring",
           }}
-          className='dmsans name text-xl tracking-wider uppercase font-semibold'
+          className='dmsans name text-xl tracking-wider uppercase font-semibold w-full'
         >
           Danny Nguyen
         </motion.span>
@@ -58,14 +58,12 @@ export default function SubHero({ text }) {
           duration: 2,
           type: "spring",
         }}
-        className='flex-1'
+        className='flex-1 max-w-[640px] max-h-[500px]'
       >
         <Image
           src={Astronaut}
           alt='astronaut'
-          width={600}
-          height={450}
-          className='astronaut'
+          className='astronaut w-full h-full'
         />
       </motion.div>
     </div>

@@ -59,7 +59,7 @@ export default function Home() {
   return (
     <main className='h-full w-full poppins'>
       <section className='starfall' id='home'>
-        <div className='burger-menu w-full text-3xl flex items-center cursor-pointer '>
+        <div className='burger-menu w-full text-3xl flex items-center cursor-pointer'>
           <AnimatePresence>
             {showMenu && (
               <motion.div
@@ -69,9 +69,9 @@ export default function Home() {
                 exit='exit'
                 className='h-[100vh] origin-top bg-black w-full p-4'
               >
-                <div className='poppins logo text-3xl px-4 cursor-pointer flex justify-between'>
+                <div className='poppins logo text-3xl cursor-pointer flex justify-between'>
                   <h1 className='text-[#963489]'>Danny</h1>
-                  <button onClick={toggleMenu} className='px-10'>
+                  <button onClick={toggleMenu}>
                     {showMenu ? <IoIosCloseCircle /> : <RxHamburgerMenu />}
                   </button>
                 </div>
