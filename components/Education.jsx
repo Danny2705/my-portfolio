@@ -13,7 +13,7 @@ const Education = () => {
     <div className='p-5 max-w-[1200px] flex flex-col items-center justify-center mx-auto'>
       <div className='w-full'>
         <motion.div variants={textVariant()} initial='hidden' animate='show'>
-          <h2 className='lg-text text-7xl'>Education 📚.</h2>
+          <h2 className='edu-h2 lg-text text-7xl'>Education 📚.</h2>
         </motion.div>
         <div className='mt-[2rem]'>
           <VerticalTimeline lineColor=''>

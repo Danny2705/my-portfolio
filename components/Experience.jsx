@@ -13,7 +13,7 @@ const Experience = () => {
     <div className='p-5 max-w-[1200px] flex flex-col items-center justify-center mx-auto'>
       <div className='w-full'>
         <motion.div variants={textVariant()} initial='hidden' animate='show'>
-          <h2 className='lg-text text-7xl'>Work Experience 👨🏻‍💻.</h2>
+          <h2 className='exp-h2 lg-text text-7xl'>Work Experience 👨🏻‍💻.</h2>
         </motion.div>
         <div className='timeline-vertical mt-[3.5rem] flex flex-col'>
           <VerticalTimeline lineColor=''>

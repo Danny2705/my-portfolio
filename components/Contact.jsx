@@ -22,7 +22,7 @@ export default function Contact() {
           >
             <Image src={Cat} alt='cat' priority />
           </motion.div>
-          <div className='form-input flex-1 flex-col'>
+          <div className='form-input flex-1 flex-col mx-auto'>
             <Form />
           </div>
         </div>

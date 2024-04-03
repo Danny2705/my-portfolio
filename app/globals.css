@@ -37,8 +37,9 @@ section {
   scroll-snap-align: center;
 }
 
-#experience {
-  height: 230vh;
+#experience,
+#education {
+  height: fit-content;
   scroll-snap-align: center;
 }
 
@@ -251,10 +252,6 @@ section:nth-child(4) {
     #362547
   );
 }
-#education {
-  height: 110vh;
-  scroll-snap-align: center;
-}
 .catContainer {
   animation: animate 2s infinite linear;
 }
@@ -441,5 +438,64 @@ section:nth-child(4) {
   }
   label {
     font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 1024px) and (min-width: 768px) {
+  .astronaut {
+    width: 500px;
+    height: 380px;
+  }
+  .auto-text,
+  .lang-container h1,
+  .contact-h1,
+  .edu-h2,
+  .exp-h2 {
+    font-size: 3rem;
+  }
+  .subhero {
+    max-width: 100%;
+  }
+  #home,
+  .hero-left,
+  .hero {
+    height: fit-content;
+  }
+  .vertical-timeline-element-date > span {
+    display: none;
+  }
+  .exp-icon {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .exp-icon-container {
+    margin-left: 0.8rem;
+  }
+  .contact {
+    flex-direction: column;
+  }
+  .form h1 {
+    font-size: 1.2rem;
+  }
+  .form {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+  }
+  .form-input {
+    width: 100%;
+    max-width: 513px;
+    margin: 0;
+  }
+  .form form {
+    gap: 1rem;
+  }
+  label {
+    font-size: 1rem;
+  }
+  .parallax h1 {
+    font-size: 4rem;
   }
 }
