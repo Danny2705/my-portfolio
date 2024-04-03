@@ -43,20 +43,25 @@ export default function MainLanguages() {
 
   return (
     <div className='w-full max-w-[1200px] mx-auto flex flex-col justify-center gap-10 h-full'>
-      <h1 className='text-7xl font-bold mb-6 text-[#fff] text-center'>
+      <h1 className='lg-text text-7xl font-bold mb-6 text-[#fff] text-center'>
         Skills <span className='text-[#963489]'>&</span> Technologies
       </h1>
 
-      <div className='flex flex-wrap justify-center'>
+      <div className='flex flex-wrap justify-center p-1 items-center'>
         {items.map((item, index) => (
           <motion.div
             key={index}
-            initial={{ x: "100%", opacity: 0 }}
-            animate={{ x: 0, opacity: 1 }}
-            transition={{ duration: 0.5, delay: index * 0.1 }}
-            className='m-2 bg-[#000] px-3 border border-[#5fabfd] py-3 items-center hover:bg-[#f1f0f0] duration-500 ease-in-out shadow-lg shadow-[#5fabfd] flex'
+            // initial={{ x: "100%", opacity: 0 }}
+            // animate={{ x: 0, opacity: 1 }}
+            // transition={{ duration: 0.5, delay: index * 0.1 }}
+            className='img-container m-2 bg-[#000] px-3 border border-[#5fabfd] py-3 items-center hover:bg-[#f1f0f0] duration-500 ease-in-out shadow-lg shadow-[#5fabfd] flex'
           >
-            <Image src={item} alt={`Language ${index}`} width='80' />
+            <Image
+              src={item}
+              alt={`Language ${index}`}
+              width='80'
+              className='lang-img'
+            />
           </motion.div>
         ))}
       </div>

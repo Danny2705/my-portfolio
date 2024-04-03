@@ -7,8 +7,8 @@ import { motion } from "framer-motion";
 
 export default function SubHero({ text }) {
   return (
-    <div className='flex justify-center p-5 gap-8 w-[1200px] mx-auto mt-10'>
-      <div className='flex flex-col flex-1 gap-8 w-[528px]'>
+    <div className='subhero flex justify-center p-5 gap-8 w-[1200px] mx-auto mt-10'>
+      <div className='hero-left flex flex-col flex-1 gap-8 w-[528px]'>
         <motion.span
           initial={{ y: "2rem", opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
@@ -16,7 +16,7 @@ export default function SubHero({ text }) {
             duration: 2,
             type: "spring",
           }}
-          className='dmsans text-xl tracking-wider uppercase font-semibold'
+          className='dmsans name text-xl tracking-wider uppercase font-semibold'
         >
           Danny Nguyen
         </motion.span>
@@ -28,10 +28,10 @@ export default function SubHero({ text }) {
             duration: 2,
             type: "spring",
           }}
-          className='flex flex-col font-bold font-serif text-8xl'
+          className='flex flex-col gap-2 font-bold font-serif text-8xl'
         >
-          <span className='dmsans'>I am a</span>
-          <span className='dmsans text-[#963489]'>
+          <span className='dmsans auto-text'>I am a</span>
+          <span className='dmsans auto-text text-[#963489]'>
             {text}
             <Cursor />
           </span>
@@ -44,10 +44,10 @@ export default function SubHero({ text }) {
             duration: 3,
             type: "spring",
           }}
-          className='flex items-center bg-[#5fabfd] text-[#963489] p-4 rounded-2xl w-44 gap-2 justify-center'
+          className='btn flex items-center bg-[#5fabfd] text-[#963489] p-4 rounded-2xl w-44 gap-2 justify-center'
         >
           <MdOutlineSend size={20} />
-          <span className='text-lg font-bold'>My Resume</span>
+          <span className='btn-txt text-lg font-bold'>My Resume</span>
         </motion.button>
       </div>
 

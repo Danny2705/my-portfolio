@@ -77,6 +77,8 @@ section {
   background-image: url("../app/src/banner-bg.png");
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
+  width: 100%;
 }
 
 .timeline-item {
@@ -267,5 +269,72 @@ section {
   }
   100% {
     transform: translateY(-20px);
+  }
+}
+
+@media screen and (max-width: 640px) {
+  .logo {
+    font-size: 1.5rem;
+  }
+  .hero {
+    position: relative;
+    height: 100%;
+    width: 100%;
+  }
+  .subhero {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0rem;
+  }
+  .hero-left {
+    width: 100%;
+    gap: 1rem;
+    justify-content: center;
+  }
+  .name {
+    font-size: 1.2rem;
+  }
+  .auto-text {
+    font-size: 1.3rem;
+  }
+  .btn {
+    padding: 0.3rem 0;
+    border-radius: 5px;
+  }
+  .btn-txt {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .astronaut {
+    width: 320px;
+    height: 310px;
+  }
+  .burger-menu {
+    font-size: 1.25rem;
+    line-height: 2rem;
+    /* padding: 0 1rem; */
+  }
+  .menu {
+    /* display: none; */
+    position: fixed;
+    top: 0;
+    /* right: 0; */
+    padding: 0 16px;
+    z-index: 1000;
+    height: 100%;
+    /* width: 100%; */
+  }
+  .lg-text {
+    font-size: 1.5rem;
+  }
+  .img-container {
+    transition: none;
+  }
+  .lang-img {
+    width: 50px;
+    height: 50px;
+  }
+  .mouse {
+    width: 50px;
   }
 }
