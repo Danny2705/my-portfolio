@@ -4,6 +4,7 @@ import projectList from "../app/projectList.js";
 import { FcPrevious, FcNext } from "react-icons/fc";
 import { FaLink } from "react-icons/fa6";
 import { motion } from "framer-motion";
+import Image from "next/image.js";
 
 export default function Projects() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -68,9 +69,11 @@ export default function Projects() {
             >
               <div className='flex flex-col w-full items-center'>
                 <div className='h-[200px] w-[320px] relative'>
-                  <img
+                  <Image
                     src={proj.image}
                     alt='project image'
+                    width='320'
+                    height={200}
                     className='w-full h-full'
                   />
                   <div className='absolute top-3 right-2 rounded-full border p-1 box-link'>

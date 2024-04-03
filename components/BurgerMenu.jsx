@@ -59,12 +59,10 @@ export default function BurgerMenu({ setShowMenu }) {
               initial='initial'
               animate='open'
               exit='initial'
+              key={index}
               className='overflow-hidden'
             >
-              <tr
-                key={index}
-                className='flex gap-4 hover:underline hover:text-[#963489] transition duration-500 ease-in-out'
-              >
+              <tr className='flex gap-4 hover:underline hover:text-[#963489] transition duration-500 ease-in-out'>
                 <td>
                   <div>{item.icon}</div>
                 </td>
