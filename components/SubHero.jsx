@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function SubHero({ text }) {
   return (
-    <div className='subhero flex justify-center px-5 gap-8 w-[1200px] mx-auto mt-10'>
+    <div className='subhero h-full flex justify-center px-5 gap-8 w-[1200px] mx-auto mt-10'>
       <div className='hero-left flex flex-col flex-1 gap-8 max-w-[528px]'>
         <motion.span
           initial={{ y: "2rem", opacity: 0 }}
@@ -58,7 +58,7 @@ export default function SubHero({ text }) {
           duration: 2,
           type: "spring",
         }}
-        className='flex-1 max-w-[640px] max-h-[500px]'
+        className='ast-container flex-1 max-w-[640px] max-h-[500px]'
       >
         <Image
           src={Astronaut}

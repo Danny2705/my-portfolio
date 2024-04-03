@@ -30,7 +30,7 @@ export default function Form() {
   };
 
   return (
-    <div className='form p-7 max-w-[513px]'>
+    <div className='form p-7 max-w-[513px] w-full'>
       <Toaster position='top-right' toastOptions={{ duration: 2000 }} />
       <h1 className='text-5xl font-bold mb-[1rem]'>Get in Touch</h1>
 

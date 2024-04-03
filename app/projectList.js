@@ -6,6 +6,7 @@ const projectList = [
       "Experience a seamless dining journey on our website built with the MERN stack. Explore the menu, place orders, and create events with real-time updates.",
     image: "/food.png",
     link: "https://hughiepub.vercel.app/",
+    github: "https://github.com/Danny2705/hughiepub",
     language: [
       "react",
       "node.js",
@@ -24,6 +25,7 @@ const projectList = [
       "Besides the client-side, the website also features an admin dashboard for managing orders, menu items, and events. The dashboard provides real-time updates on orders and revenue",
     image: "/food-admin.png",
     link: "https://hughie-admin.vercel.app/",
+    github: "https://github.com/Danny2705/hughie-admin",
     language: [
       "react",
       "node.js",
@@ -42,6 +44,7 @@ const projectList = [
       "The front-end of a real estate website built with React.js and Tailwind CSS. The website is responsive and user-friendly, providing a seamless experience for users with framer motions and animations.",
     image: "/real-estate.png",
     link: "https://my-react-6jzynchrs-danny2705.vercel.app/",
+    github: "https://github.com/Danny2705/real-estate",
     language: ["react", "tailwind", "figma", "git", "tailwind"],
   },
   {
@@ -51,6 +54,8 @@ const projectList = [
       "A simple rock-paper-scissors game built with HTML, CSS, and JavaScript. The game features a user-friendly interface with animations. Players can choose their moves and see the results with a fun and interactive design.",
     image: "/rock-paper-scissor.png",
     link: "https://rock-paper-scissors-personal-project.vercel.app/",
+    github:
+      "https://github.com/Danny2705/rock-paper-scissors-Personal-Project-5",
     language: ["javascript", "html", "css"],
   },
   // {

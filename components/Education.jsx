@@ -15,7 +15,7 @@ const Education = () => {
         <motion.div variants={textVariant()} initial='hidden' animate='show'>
           <h2 className='lg-text text-7xl'>Education 📚.</h2>
         </motion.div>
-        <div className='mt-[2rem] flex flex-col'>
+        <div className='mt-[2rem]'>
           <VerticalTimeline lineColor=''>
             {education.map((edu, index) => (
               <VerticalTimelineElement
@@ -24,7 +24,6 @@ const Education = () => {
                 contentStyle={{
                   background: "#1d1836",
                   color: "#fff",
-                  margin: 0,
                   borderWidth: 1,
                   borderColor: "#5fabfd",
                   boxShadow: "0 0 10px 0 #5fabfd",
@@ -42,27 +41,29 @@ const Education = () => {
                     {edu.date}
                   </span>
                 }
-                // iconStyle={{ background: edu.iconBg }}
                 visible={true}
                 icon={
-                  <div className='mr-6 mt-4'>
+                  <div className='exp-icon-container mr-6 mt-4'>
                     {edu.icon && (
-                      <edu.icon style={{ width: "50px", height: "50px" }} />
+                      <edu.icon
+                        style={{ width: "50px", height: "50px" }}
+                        className='exp-icon'
+                      />
                     )}
                   </div>
                 }
               >
                 <div className='my-2'>
-                  <h3 className='text-[#963489] text-[1.5rem] font-bold'>
+                  <h3 className='exp-title text-[#963489] text-[1.5rem] font-bold'>
                     {edu.title}
                   </h3>
                   <p
-                    className='text-secondary text-[1rem] font-semibold italic text-[#b22e61]'
+                    className='exp-comp text-secondary text-[1rem] font-semibold italic text-[#b22e61]'
                     style={{ margin: 0 }}
                   >
                     {edu.location}
                   </p>
-                  <p className='text-[#7c7795]' style={{ margin: 0 }}>
+                  <p className='edu-des text-[#7c7795]' style={{ margin: 0 }}>
                     {edu.course}
                   </p>
                 </div>

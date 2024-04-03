@@ -62,9 +62,11 @@ export default function BurgerMenu({ setShowMenu }) {
               key={index}
               className='overflow-hidden'
             >
-              <tr className='flex gap-4 hover:underline hover:text-[#963489] transition duration-500 ease-in-out'>
+              <tr className='flex gap-4 items-center'>
                 <td>
-                  <div>{item.icon}</div>
+                  <div className='border border-[#963489] hover:text-[#5fabfd] hover:border-[#5fabfd] transition duration-500 ease-in-out rounded-full p-2'>
+                    {item.icon}
+                  </div>
                 </td>
                 <td>
                   <a
@@ -75,7 +77,9 @@ export default function BurgerMenu({ setShowMenu }) {
                       smoothScroll(item.href.substring(1));
                     }}
                   >
-                    <span className='text-[#5fabfd]'>{item.name}</span>
+                    <span className='text-[#5fabfd] hover:text-[#963489] transition duration-500 ease-in-out'>
+                      {item.name}
+                    </span>
                   </a>
                 </td>
               </tr>

@@ -9,8 +9,8 @@ export default function Contact() {
   return (
     <div className='p-5 max-w-[1200px] flex flex-col items-center justify-center mx-auto'>
       <div className='w-full flex flex-col gap-4'>
-        <h1 className='text-7xl text-[#963489]'>Contact.</h1>
-        <div className='flex justify-between items-center'>
+        <h1 className='contact-h1 text-7xl text-[#963489]'>Contact.</h1>
+        <div className='contact flex justify-between items-center'>
           <motion.div
             initial={{ x: "-7rem", opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
@@ -22,7 +22,7 @@ export default function Contact() {
           >
             <Image src={Cat} alt='cat' priority />
           </motion.div>
-          <div className='flex-1 flex-col'>
+          <div className='form-input flex-1 flex-col'>
             <Form />
           </div>
         </div>

@@ -1,111 +1,67 @@
 "use client";
-import React, { useState } from "react";
+import React from "react";
 import projectList from "../app/projectList.js";
-import { FcPrevious, FcNext } from "react-icons/fc";
-import { FaLink } from "react-icons/fa6";
-import { motion } from "framer-motion";
-import Image from "next/image.js";
+import { Swiper, SwiperSlide } from "swiper/react";
+import Image from "next/image";
+import "swiper/css";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { EffectCoverflow, Pagination, Navigation } from "swiper/modules";
+import { FaGithub } from "react-icons/fa";
+import { SiVercel } from "react-icons/si";
 
 export default function Projects() {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const [hoveredIndex, setHoveredIndex] = useState(null);
-
-  const handleNext = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === projectList.length - 1 ? 0 : prevIndex + 1
-    );
-  };
-
-  const handlePrevious = () => {
-    setActiveIndex((prevIndex) =>
-      prevIndex === 0 ? projectList.length - 1 : prevIndex - 1
-    );
-  };
-
-  function getColorClass(lang) {
-    switch (lang) {
-      case "react":
-      case "javascript":
-        return "text-[#3D90CC]";
-      case "mongodb":
-      case "postman":
-        return "text-[#218e68]";
-      default:
-        return "text-[#b22e61]";
-    }
-  }
-
-  const startIndex = activeIndex % projectList.length;
-  const endIndex = Math.min(startIndex + 2, projectList.length - 1);
-
   return (
-    <div className='px-5 py-10 flex flex-col justify-start max-w-[1200px] h-full gap-7 mx-auto items-start'>
-      <motion.h1
-        initial={{ y: "-2rem", opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{
-          duration: 1,
-          type: "spring",
-        }}
-        className='max-w-[1200px] text-7xl'
+    <div className='projects-wrapper px-5 py-10 max-w-[1200px] mx-auto'>
+      <h1 className='text-5xl font-bold mb-4'>Projects.</h1>
+      <Swiper
+        effect={"coverflow"}
+        grabCursor={true}
+        centeredSlides={true}
+        loop={true}
+        slidesPerView={"auto"}
+        pagination={{ clickable: true }}
+        // navigation={{ clickable: true }}
+        modules={[EffectCoverflow, Pagination, Navigation]}
+        coverflowEffect={{ rotate: 0, stretch: 0, depth: 100, modifier: 2.5 }}
       >
-        Projects.
-      </motion.h1>
-      <div className='flex justify-center items-center w-full mx-auto'>
-        <div className='cursor-pointer'>
-          <FcPrevious size={25} onClick={handlePrevious} />
-        </div>
-        <div className='flex justify-center items-center flex-wrap w-full gap-3 mx-auto h-full'>
-          {projectList.map((proj, i) => (
-            <div
-              className={`project-container sm:max-w-[360px] h-[500px] flex flex-wrap duration-200 border border-[#5fabfd] ${
-                hoveredIndex === i
-                  ? "z-[999] hover:scale-110"
-                  : "z-[1] hover:z-[2]"
-              } ${i >= startIndex && i <= endIndex ? "" : "hidden"}`}
-              key={i}
-              onMouseEnter={() => setHoveredIndex(i)}
-              onMouseLeave={() => setHoveredIndex(null)}
-            >
-              <div className='flex flex-col w-full items-center'>
-                <div className='h-[200px] w-[320px] relative'>
-                  <Image
-                    src={proj.image}
-                    alt='project image'
-                    width='320'
-                    height={200}
-                    className='w-full h-full'
-                  />
-                  <div className='absolute top-3 right-2 rounded-full border p-1 box-link'>
-                    <a href={proj.link} target='_blank'>
-                      <FaLink size={22} color='white' />
-                    </a>
-                  </div>
+        {projectList.map((proj, i) => (
+          <SwiperSlide key={i}>
+            <div className='swiper-list bg-[#151030] border border-[#5fabfd] relative h-[600px] w-full overflow-hidden'>
+              <Image
+                src={proj.image}
+                layout='fill'
+                objectFit='contain'
+                className='relative h-full'
+                alt='project-image'
+              />
+              <div className='inset-0 flex font-semibold bg-opacity-70 transition-opacity duration-300 opacity-0 hover:opacity-100 h-full'>
+                <div className='proj-title text-lg text-[#963489] mb-2 absolute top-0 left-1'>
+                  {proj.title}
                 </div>
-                <div className='flex justify-between items-center mt-4 my-2 w-full text-[#963489]'>
-                  <span className='rounded-full border border-[#963489] text-white px-2'>
-                    {proj.id}
-                  </span>
-                  <h1 className='font-bold tracking-wider'>{proj.title}</h1>
-                </div>
-                <p className='poppins text-[#7c7795]'>{proj.description}</p>
-                <div className='text-[#7c7795] flex w-full flex-wrap items-center gap-2 mt-2'>
-                  {proj.language.map((lang, i) => (
-                    <div key={i} className={`dmsans ${getColorClass(lang)}`}>
-                      #{lang}
-                    </div>
-                  ))}
+                <div class='absolute top-1 right-2 flex gap-4'>
+                  <a
+                    href={proj.github}
+                    target='_blank'
+                    className='rounded-full border p-1 box-link '
+                  >
+                    <FaGithub />
+                  </a>
+
+                  <a
+                    href={proj.link}
+                    target='_blank'
+                    className='rounded-full border p-1 box-link '
+                  >
+                    <SiVercel />
+                  </a>
                 </div>
               </div>
             </div>
-          ))}
-        </div>
-        <div className='cursor-pointer'>
-          <FcNext size={25} onClick={handleNext} />
-        </div>
-      </div>
-
-      {/* box */}
+          </SwiperSlide>
+        ))}
+      </Swiper>
       <div className='box absolute w-full right-0 top-0 -z-10'></div>
       <div className='box absolute w-full left-0 bottom-0 -z-10'></div>
     </div>

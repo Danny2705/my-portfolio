@@ -15,7 +15,7 @@ const Experience = () => {
         <motion.div variants={textVariant()} initial='hidden' animate='show'>
           <h2 className='lg-text text-7xl'>Work Experience 👨🏻‍💻.</h2>
         </motion.div>
-        <div className='mt-[3.5rem] flex flex-col'>
+        <div className='timeline-vertical mt-[3.5rem] flex flex-col'>
           <VerticalTimeline lineColor=''>
             {experiences.map((experience, index) => (
               <VerticalTimelineElement
@@ -43,21 +43,22 @@ const Experience = () => {
                 iconStyle={{ background: experience.iconBg }}
                 visible={true}
                 icon={
-                  <div className='mr-6 mt-4'>
+                  <div className='exp-icon-container mr-6 mt-4'>
                     {experience.icon && (
                       <experience.icon
                         style={{ width: "50px", height: "50px" }}
+                        className='exp-icon'
                       />
                     )}
                   </div>
                 }
               >
                 <div>
-                  <h3 className='text-[#963489] text-[24px] font-bold'>
+                  <h3 className='exp-title text-[#963489] text-[24px] font-bold'>
                     {experience.title}
                   </h3>
                   <p
-                    className='text-secondary text-[1rem] font-semibold italic text-[#b22e61]'
+                    className='exp-comp text-secondary text-[1rem] font-semibold italic text-[#b22e61]'
                     style={{ margin: 0 }}
                   >
                     {experience.company_name}
@@ -68,13 +69,15 @@ const Experience = () => {
                   {experience.description.map((desc, index) => (
                     <li
                       key={`experience-point-${index}`}
-                      className='text-[#7c7795] text-[14px] pl-1 tracking-wider'
+                      className='exp-des text-[#7c7795] text-[14px] pl-1 tracking-wider'
                     >
                       {desc}
                     </li>
                   ))}
                 </ul>
-                <span className='text-[#aead06]'>{experience.date}</span>
+                <span className='exp-date text-[#aead06]'>
+                  {experience.date}
+                </span>
               </VerticalTimelineElement>
             ))}
           </VerticalTimeline>

@@ -27,7 +27,7 @@
     "react-spinners": "^0.13.8",
     "react-swipeable": "^7.0.1",
     "react-vertical-timeline-component": "^3.6.0",
-    "swiper": "^11.0.7"
+    "swiper": "^11.1.0"
   },
   "devDependencies": {
     "autoprefixer": "^10.0.1",

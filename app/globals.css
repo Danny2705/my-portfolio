@@ -33,12 +33,23 @@ a {
 }
 
 section {
-  height: 100vh;
+  height: fit-content;
   scroll-snap-align: center;
 }
 
 #experience {
   height: 230vh;
+  scroll-snap-align: center;
+}
+
+#home {
+  height: 100vh;
+}
+
+#languages,
+section:nth-child(2),
+section:nth-child(4) {
+  height: 100vh;
   scroll-snap-align: center;
 }
 
@@ -263,6 +274,12 @@ section {
   display: none;
 }
 
+.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
+.swiper-pagination-horizontal.swiper-pagination-bullets
+  .swiper-pagination-bullet {
+  background: white;
+  margin-top: 1rem;
+}
 @media screen and (max-width: 640px) {
   .logo {
     font-size: 1.5rem;
@@ -272,16 +289,26 @@ section {
     height: 100%;
     width: 100%;
   }
+  .hero h1 {
+    color: #963489;
+    text-shadow: #963489;
+  }
   .subhero {
     flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
     width: 100%;
     margin-top: 0rem;
+    margin: 0 auto;
+    height: 80%;
   }
   .hero-left {
     width: 100%;
-    gap: 1rem;
-    justify-content: center;
-    padding: 0 2rem;
+    gap: 1.5rem;
+    /* justify-content: flex-start;
+    align-items: flex-start; */
+    padding: 0 1.5rem;
+    flex: none;
   }
   .name {
     font-size: 1.2rem;
@@ -297,9 +324,12 @@ section {
     font-size: 1rem;
     font-weight: 600;
   }
+  .ast-container {
+    flex: none;
+  }
   .astronaut {
-    width: 320px;
-    height: 310px;
+    width: 450px;
+    height: 380px;
   }
   .burger-menu {
     display: block;
@@ -321,10 +351,89 @@ section {
     transition: none;
   }
   .lang-img {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
   }
   .mouse {
     width: 50px;
+  }
+  .parallax h1 {
+    font-size: 3rem;
+  }
+  .parallax .mountains {
+    background-size: 120%;
+  }
+  .parallax .planets {
+    background-size: 170%;
+  }
+  .lang-container {
+    gap: 0;
+  }
+  .projects-wrapper {
+    justify-content: space-around;
+    height: 100%;
+  }
+  .projects-wrapper h1 {
+    font-size: 1.5rem;
+  }
+  .project-container {
+    max-width: 300px;
+  }
+  .swiper-list {
+    max-height: 500px;
+  }
+  .proj-title {
+    font-size: 0.8rem;
+  }
+  .swiper-list Image {
+    height: fit-content;
+  }
+  .box {
+    width: 10rem;
+  }
+  .exp-icon {
+    width: 35px !important;
+    height: 35px !important;
+  }
+  .exp-icon-container {
+    margin-left: 0.8rem;
+  }
+  .exp-title {
+    font-size: 1rem;
+  }
+  .exp-comp,
+  .exp-date,
+  .exp-des,
+  .vertical-timeline-element-content {
+    font-size: 0.7rem;
+  }
+  .vertical-timeline-element-date > span {
+    display: none;
+  }
+  .timeline-vertical {
+    margin-top: 1rem;
+  }
+  #experience,
+  #education {
+    height: fit-content;
+  }
+  .edu-des {
+    font-size: 0.7rem !important;
+    margin: 0.5rem 0 !important;
+  }
+  .contact-h1 {
+    font-size: 1.5rem;
+  }
+  .contact {
+    flex-direction: column;
+  }
+  .form h1 {
+    font-size: 1.2rem;
+  }
+  .form {
+    padding: 1rem;
+  }
+  .form-input {
+    width: 100%;
   }
 }
